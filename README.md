@@ -13,5 +13,8 @@ Online di: [https://nanasgunung.com](https://nanasgunung.com)
 
 ## 📦 Teknologi yang Digunakan
 
-- [React](https://react.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
+- [**React + TypeScript**](https://react.dev/) → Frontend framework dengan type-safety
+- [**Tailwind CSS**](https://tailwindcss.com/) → Utility-first styling untuk desain yang konsisten & responsif
+- [**FontAwesome**](https://fontawesome.com/) → Ikon-ikon modern dan ringan
+- [**Framer Motion**](https://www.framer.com/motion/) → Animasi interaktif dan halus
+- [**Swiper.js**](https://swiperjs.com/) → Slider responsif untuk showcase konten
