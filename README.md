@@ -2,6 +2,8 @@
 
 Landing page sederhana untuk brand **Nanas Gunung**, dibuat menggunakan React + Tailwind CSS.
 
+Online di: [https://nanasgunung.com](https://nanasgunung.com)
+
 ## 🚀 Fitur
 
 - Tampilan responsive (mobile, tablet, desktop)
