@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
 
           <p className="text-xl md:text-2xl font-light">
             Kami menyediakan jasa desain grafis, website, dan konten kreatif
-            untuk semuanya.
+            untuk semuanya, sesuai kemauan.
           </p>
 
           <motion.a
