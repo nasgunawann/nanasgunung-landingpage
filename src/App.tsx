@@ -1,34 +1,35 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import CTABanner from "@/components/cta-banner";
+import FAQ from "@/components/faq";
+import Features from "@/components/features";
+import Footer from "@/components/footer";
+import Hero from "@/components/hero";
+import { Navbar } from "@/components/navbar";
+import Pricing from "@/components/pricing";
+import Testimonials from "@/components/testimonials";
+import Stats from "@/components/stats";
+import Portfolio from "@/components/portfolio";
+import Process from "@/components/process";
+import FloatingCTA from "@/components/floating-cta";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+function Home() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar />
+      <main>
+        <Hero />
+        <Stats />
+        <Features />
+        <Portfolio />
+        <Process />
+        <Pricing />
+        <FAQ />
+        <Testimonials />
+        <CTABanner />
+        <Footer />
+      </main>
+      <FloatingCTA />
     </>
   );
 }
 
-export default App;
+export default Home;
