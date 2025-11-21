@@ -47,7 +47,7 @@ export default function CTABanner() {
               <span className="relative inline-block">
                 Dunia Digital?
                 <motion.span
-                  className="absolute -bottom-2 left-0 right-0 h-2 bg-white rounded-full"
+                  className="absolute -bottom-4 left-0 right-0 h-2 bg-white rounded-full"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
