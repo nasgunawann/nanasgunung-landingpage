@@ -3,7 +3,7 @@ import { Users, Code2, Award, Clock } from "lucide-react";
 
 const stats = [
   { icon: Users, value: "50+", label: "Klien Puas" },
-  { icon: Code2, value: "100+", label: "Proyek Selesai" },
+  { icon: Code2, value: "50+", label: "Proyek Selesai" },
   { icon: Award, value: "5+", label: "Tahun Pengalaman" },
   { icon: Clock, value: "24/7", label: "Support Teknis" },
 ];
@@ -12,7 +12,7 @@ const Stats = () => {
   return (
     <div className="py-16 bg-gradient-to-b from-background to-muted/30">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -47,4 +47,3 @@ const Stats = () => {
 };
 
 export default Stats;
-

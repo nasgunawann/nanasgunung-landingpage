@@ -43,9 +43,9 @@ export default function CTABanner() {
               transition={{ delay: 0.1 }}
               className="text-3xl md:text-5xl font-bold text-white leading-tight"
             >
-              Siap Meningkatkan{" "}
+              Siap Tampil Profesional di{" "}
               <span className="relative inline-block">
-                Bisnis Anda?
+                Dunia Digital?
                 <motion.span
                   className="absolute -bottom-2 left-0 right-0 h-2 bg-white rounded-full"
                   initial={{ scaleX: 0 }}
@@ -64,9 +64,8 @@ export default function CTABanner() {
               transition={{ delay: 0.2 }}
               className="text-base md:text-lg text-white/90 max-w-2xl"
             >
-              Mari diskusikan kebutuhan website, desain grafis, atau konten
-              kreatif untuk bisnis Anda. Hubungi kami hari ini dan mulai
-              transformasi digital bisnis Anda!
+              Diskusikan kebutuhan website Anda. Untuk bisnis, personal, atau
+              akademik. Mulai dari sini, semuanya jadi lebih mudah.
             </motion.p>
 
             {/* Trust indicators */}

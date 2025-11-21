@@ -1,11 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { FileImage, Camera } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import previewImage from "/images/preview.png";
 
 const Hero = () => {
-  const benefits = ["100+ Proyek Selesai", "Tim Profesional", "Support 24/7"];
+  const benefits = ["50+ Proyek Selesai", "Tim Profesional", "Support 24/7"];
+  const rotatingWords = [
+    "Bisnismu",
+    "Proyekmu",
+    "Tugasmu",
+    "Portofolimu",
+    "Idemu",
+  ];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 3000); // Change word every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [rotatingWords.length]);
 
   return (
     <section
@@ -43,22 +60,32 @@ const Hero = () => {
             className="text-balance tracking-tight leading-tight text-5xl md:text-7xl font-bold pt-12 md:pt-0"
           >
             Bantu Buat Website untuk{" "}
-            <span className="relative inline-block">
-              <span className="relative">
-                <span className="bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent font-extrabold">
-                  Projekmu
-                </span>
-                {/* Glow effect */}
-                <span className="absolute inset-0 bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent blur-lg opacity-50">
-                  Projekmu
-                </span>
-              </span>
-              <motion.span
-                className="absolute -bottom-2 left-0 right-0 h-3 bg-gradient-to-r from-primary via-orange-500 to-primary rounded-full shadow-lg"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-              />
+            <span className="relative inline-block min-w-[280px] md:min-w-[420px]">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentWordIndex}
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -100, opacity: 0 }}
+                  transition={{ duration: 1, ease: "anticipate" }}
+                  className="relative inline-block"
+                >
+                  <span className="bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent font-extrabold">
+                    {rotatingWords[currentWordIndex]}
+                  </span>
+                  {/* Glow effect */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent blur-lg opacity-50 pointer-events-none">
+                    {rotatingWords[currentWordIndex]}
+                  </span>
+                  {/* Underline - positioned relative to the word */}
+                  <motion.span
+                    className="absolute -bottom-5 left-0 h-3 bg-gradient-to-r from-primary via-orange-500 to-primary rounded-full shadow-lg"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 1, ease: "anticipate" }}
+                  />
+                </motion.span>
+              </AnimatePresence>
             </span>
           </motion.h1>
 
