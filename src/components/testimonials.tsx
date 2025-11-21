@@ -104,7 +104,9 @@ const TestimonialList = () =>
           </Avatar>
           <div>
             <p className="text-lg font-semibold">{testimonial.name}</p>
-            <p className="text-sm text-gray-500">{testimonial.designation}</p>
+            <p className="text-sm text-gray-500">
+              {testimonial.designation} | {testimonial.company}
+            </p>
           </div>
         </div>
         <Button variant="ghost" size="icon" asChild>

@@ -1,100 +1,181 @@
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import {
-  DribbbleIcon,
-  GithubIcon,
-  TwitchIcon,
-  TwitterIcon,
-} from "lucide-react";
-import logoLight from "/images/logo-dark.png";
+import { MapPin, Mail, Phone, Clock } from "lucide-react";
+import { FaInstagram, FaLinkedinIn, FaWhatsapp, FaGlobe } from "react-icons/fa";
+import logoLight from "/images/logo-light.png";
+import logoDark from "/images/logo-dark.png";
+import { useEffect, useState } from "react";
 
 const footerLinks = [
   {
     title: "Layanan",
-    href: "#features",
+    links: [
+      { name: "Website Bisnis", href: "#features" },
+      { name: "Portfolio Personal", href: "#features" },
+      { name: "E-commerce", href: "#features" },
+      { name: "Sistem Informasi", href: "#features" },
+    ],
   },
   {
-    title: "Paket & Harga",
-    href: "#pricing",
+    title: "Perusahaan",
+    links: [
+      { name: "Tentang Kami", href: "#about" },
+      { name: "Portfolio", href: "#portfolio" },
+      { name: "Proses Kerja", href: "#process" },
+      { name: "Tim", href: "#team" },
+    ],
   },
   {
-    title: "FAQ",
-    href: "#faq",
-  },
-  {
-    title: "Testimoni",
-    href: "#testimonials",
-  },
-  {
-    title: "Kontak",
-    href: "#contact",
+    title: "Dukungan",
+    links: [
+      { name: "FAQ", href: "#faq" },
+      { name: "Testimoni", href: "#testimonials" },
+      { name: "Kontak", href: "#contact" },
+      { name: "Panduan", href: "#guide" },
+    ],
   },
 ];
 
 const Footer = () => {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const updateTheme = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      setTheme(isDark ? "dark" : "light");
+    };
+
+    updateTheme();
+
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <footer className="dark:border-t mt-40 dark bg-background text-foreground">
+    <footer className="bg-gradient-to-b from-background to-muted/20 border-t mt-40">
       <div className="max-w-screen-xl mx-auto">
-        <div className="py-12 flex flex-col sm:flex-row items-start justify-between gap-x-8 gap-y-10 px-6 xl:px-0">
-          <div>
-            {/* Logo */}
-            <img
-              src={logoLight}
-              alt="Nanas Gunung Logo"
-              className="w-64 h-auto object-contain"
-            />
+        {/* Main Footer Content */}
+        <div className="py-16 px-6 xl:px-0">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+            {/* Company Info */}
+            <div className="lg:col-span-1 space-y-6">
+              {/* Theme-aware Logo */}
+              <img
+                src={theme === "dark" ? logoDark : logoLight}
+                alt="Nanas Gunung Logo"
+                className="w-48 h-auto object-contain transition-opacity duration-200"
+              />
 
-            <ul className="mt-6 flex items-center gap-4 flex-wrap">
-              {footerLinks.map(({ title, href }) => (
-                <li key={title}>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Solusi website profesional untuk bisnis dan personal. Kami
+                menghadirkan teknologi terdepan dengan desain modern dan
+                performa optimal.
+              </p>
+
+              {/* Contact Info */}
+              <div className="space-y-3 text-sm">
+                <div className="flex items-center gap-3 text-muted-foreground">
+                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>Medan, Indonesia</span>
+                </div>
+                <div className="flex items-center gap-3 text-muted-foreground">
+                  <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                   <a
-                    href={href}
-                    className="text-muted-foreground hover:text-foreground"
+                    href="tel:+62881082469420"
+                    className="hover:text-primary transition-colors"
                   >
-                    {title}
+                    +62 881 0824 69420
                   </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+                </div>
+                <div className="flex items-center gap-3 text-muted-foreground">
+                  <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                  <a
+                    href="mailto:hello@nanasgunung.com"
+                    className="hover:text-primary transition-colors"
+                  >
+                    hello@nanasgunung.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 text-muted-foreground">
+                  <Clock className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>Senin - Jumat: 09:00 - 18:00</span>
+                </div>
+              </div>
 
-          {/* Contact Info */}
-          <div className="max-w-xs w-full">
-            <h6 className="font-semibold">Hubungi Kami</h6>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Butuh konsultasi atau informasi lebih lanjut? Jangan ragu untuk
-              menghubungi kami.
-            </p>
-            <Button className="mt-6 w-full sm:w-auto">Konsultasi Gratis</Button>
-          </div>
-        </div>
-        <Separator />
-        <div className="py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5 px-6 xl:px-0">
-          {/* Copyright */}
-          <span className="text-muted-foreground text-center sm:text-start">
-            &copy; {new Date().getFullYear()}{" "}
-            <a href="/" target="_blank">
-              Nanas Gunung
-            </a>
-            . All rights reserved.
-          </span>
+              {/* Social Media */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-4">
+                  <a
+                    href="https://instagram.com/nanasgunung"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-muted hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer"
+                  >
+                    <FaInstagram className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://linkedin.com/company/nanasgunung"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-muted hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer"
+                  >
+                    <FaLinkedinIn className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://nanasgunung.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer"
+                  >
+                    <FaGlobe className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://wa.me/62881082469420"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-muted hover:bg-green-500 hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer"
+                  >
+                    <FaWhatsapp className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
 
-          <div className="flex items-center gap-5 text-muted-foreground">
-            <a href="#" target="_blank">
-              <TwitterIcon className="h-5 w-5" />
-            </a>
-            <a href="#" target="_blank">
-              <DribbbleIcon className="h-5 w-5" />
-            </a>
-            <a href="#" target="_blank">
-              <TwitchIcon className="h-5 w-5" />
-            </a>
-            <a href="#" target="_blank">
-              <GithubIcon className="h-5 w-5" />
-            </a>
+            {/* Footer Links */}
+            {footerLinks.map((section) => (
+              <div key={section.title} className="space-y-4">
+                <h6 className="font-semibold text-foreground">
+                  {section.title}
+                </h6>
+                <ul className="space-y-3">
+                  {section.links.map((link) => (
+                    <li key={link.name}>
+                      <a
+                        href={link.href}
+                        className="text-muted-foreground hover:text-primary transition-colors text-sm cursor-pointer"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          document
+                            .getElementById(link.href.substring(1))
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
+      <Separator />
     </footer>
   );
 };

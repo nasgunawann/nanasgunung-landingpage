@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 const FloatingCTA = () => {
   return (
     <motion.a
-      href="https://wa.me/6281234567890" // Replace with your actual WhatsApp number
+      href="https://wa.me/62881082469420" // Replace with your actual WhatsApp number
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0 }}
@@ -23,4 +23,3 @@ const FloatingCTA = () => {
 };
 
 export default FloatingCTA;
-

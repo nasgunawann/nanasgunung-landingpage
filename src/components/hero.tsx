@@ -8,7 +8,10 @@ const Hero = () => {
   const benefits = ["100+ Proyek Selesai", "Tim Profesional", "Support 24/7"];
 
   return (
-    <section className="flex flex-col items-center justify-center py-20 md:py-32 px-6 relative overflow-hidden min-h-[90vh] pb-32 scroll-mt-20">
+    <section
+      id="home"
+      className="flex flex-col items-center justify-center py-20 md:py-32 px-6 relative overflow-hidden min-h-[90vh] pb-32 scroll-mt-20"
+    >
       {/* Enhanced animated background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-primary/5 -z-10" />
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl -z-10 animate-pulse" />
@@ -41,11 +44,17 @@ const Hero = () => {
           >
             Bantu Buat Website untuk{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">
-                Bisnismu
+              <span className="relative">
+                <span className="bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent font-extrabold">
+                  Projekmu
+                </span>
+                {/* Glow effect */}
+                <span className="absolute inset-0 bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent blur-lg opacity-50">
+                  Projekmu
+                </span>
               </span>
               <motion.span
-                className="absolute -bottom-2 left-0 right-0 h-3 bg-primary/75 rounded-full"
+                className="absolute -bottom-2 left-0 right-0 h-3 bg-gradient-to-r from-primary via-orange-500 to-primary rounded-full shadow-lg"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
@@ -57,10 +66,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-xl text-muted-foreground max-w-xl"
+            className="text-xl text-foreground/80 max-w-xl leading-relaxed"
           >
-            Kami menyediakan jasa membangun website, desain grafis, dan konten
-            kreatif untuk mengembangkan bisnis Anda secara digital.
+            Kami menyediakan jasa membangun website profesional untuk tujuan
+            bisnis, personal, dan akademik.
           </motion.p>
 
           {/* Benefits list */}
@@ -93,7 +102,13 @@ const Hero = () => {
           >
             <Button
               size="lg"
-              className="w-full sm:w-auto rounded-full text-base group relative overflow-hidden"
+              className="w-full sm:w-auto rounded-full text-base group relative overflow-hidden cursor-pointer hover:cursor-pointer"
+              onClick={() =>
+                window.open(
+                  "https://wa.me/62881082469420?text=Halo! Saya tertarik dengan layanan website untuk bisnis saya. Bisa konsultasi?",
+                  "_blank"
+                )
+              }
             >
               <span className="relative z-10 flex items-center gap-2">
                 Hubungi Kami
@@ -109,7 +124,12 @@ const Hero = () => {
             <Button
               variant="outline"
               size="lg"
-              className="w-full sm:w-auto rounded-full text-base shadow-none hover:bg-primary/5 hover:border-primary/50"
+              className="w-full sm:w-auto rounded-full text-base shadow-none hover:bg-primary/5 hover:border-primary/50 cursor-pointer hover:cursor-pointer"
+              onClick={() =>
+                document
+                  .getElementById("portfolio")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Lihat Portfolio
             </Button>

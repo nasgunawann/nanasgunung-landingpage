@@ -7,6 +7,7 @@ import logoDark from "/images/logo-dark.png";
 import { NavMenu } from "./nav-menu";
 
 export const NavigationSheet = () => {
+  const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">(
     (localStorage.getItem("theme") as "light" | "dark") ||
       (window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -34,25 +35,39 @@ export const NavigationSheet = () => {
   }, [theme]);
 
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button variant="outline" size="icon" className="rounded-full">
           <Menu />
         </Button>
       </SheetTrigger>
-      <SheetContent>
-        <img
-          src={theme === "dark" ? logoDark : logoLight}
-          alt="Logo"
-          className="transition-opacity duration-200"
-        />
-        <NavMenu orientation="vertical" className="mt-12" />
+      <SheetContent className="w-[300px] sm:w-[400px]">
+        <div className="flex flex-col h-full">
+          {/* Logo */}
+          <div className="mb-8">
+            <img
+              src={theme === "dark" ? logoDark : logoLight}
+              alt="Logo"
+              className="w-32 h-auto transition-opacity duration-200"
+            />
+          </div>
 
-        <div className="mt-8 space-y-4">
-          {/* <Button variant="outline" className="w-full sm:hidden">
-            Sign In
-          </Button> */}
-          <Button className="w-full xs:hidden">Get Started</Button>
+          {/* Navigation Menu */}
+          <div onClick={() => setOpen(false)}>
+            <NavMenu orientation="vertical" className="" />
+          </div>
+
+          {/* CTA Button at bottom */}
+          <div className="mt-auto pt-6 border-t">
+            <Button
+              asChild
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-semibold"
+            >
+              <a href="#cta" onClick={() => setOpen(false)}>
+                Hubungi Kami Sekarang
+              </a>
+            </Button>
+          </div>
         </div>
       </SheetContent>
     </Sheet>

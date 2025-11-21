@@ -23,7 +23,7 @@ function Home() {
         <Process />
         <Pricing />
         <FAQ />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <CTABanner />
         <Footer />
       </main>
