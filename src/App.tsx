@@ -1,24 +1,35 @@
-import React from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Services from "./components/Services";
-import Portfolio from "./components/Portfolio";
-import Footer from "./components/Footer";
-import Contact from "./components/Contact";
+import CTABanner from "@/components/cta-banner";
+import FAQ from "@/components/faq";
+import Features from "@/components/features";
+import Footer from "@/components/footer";
+import Hero from "@/components/hero";
+import { Navbar } from "@/components/navbar";
+import Pricing from "@/components/pricing";
+// import Testimonials from "@/components/testimonials";
+import Stats from "@/components/stats";
+import Portfolio from "@/components/portfolio";
+import Process from "@/components/process";
+import FloatingCTA from "@/components/floating-cta";
 
-const App: React.FC = () => {
+function Home() {
   return (
     <>
-      <Header />
-      <Hero />
-      <About />
-      <Services />
-      <Portfolio />
-      <Footer />
-      <Contact />
+      <Navbar />
+      <main>
+        <Hero />
+        <Stats />
+        <Features />
+        <Portfolio />
+        <Process />
+        <Pricing />
+        <FAQ />
+        {/* <Testimonials /> */}
+        <CTABanner />
+        <Footer />
+      </main>
+      <FloatingCTA />
     </>
   );
-};
+}
 
-export default App;
+export default Home;
