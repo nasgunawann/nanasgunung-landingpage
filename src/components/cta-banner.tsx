@@ -4,12 +4,16 @@ import { motion } from "framer-motion";
 
 export default function CTABanner() {
   return (
-    <div id="cta" className="px-6 scroll-mt-38">
+    <div id="cta" className="px-6 scroll-mt-38 my-20">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="relative overflow-hidden my-20 w-full max-w-screen-lg mx-auto rounded-3xl"
+        className="relative overflow-hidden w-full max-w-screen-lg mx-auto rounded-3xl shadow-2xl"
+        style={{
+          boxShadow:
+            "0 0 80px rgba(255, 140, 0, 0.3), 0 0 120px rgba(255, 140, 0, 0.2), 0 20px 60px rgba(0, 0, 0, 0.3)",
+        }}
       >
         {/* Orange gradient background using primary color */}
         <div

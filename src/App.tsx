@@ -5,7 +5,7 @@ import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import { Navbar } from "@/components/navbar";
 import Pricing from "@/components/pricing";
-import Testimonials from "@/components/testimonials";
+// import Testimonials from "@/components/testimonials";
 import Stats from "@/components/stats";
 import Portfolio from "@/components/portfolio";
 import Process from "@/components/process";
